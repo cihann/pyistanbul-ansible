@@ -12,7 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "vagrant.yml"
     ansible.host_key_checking = false
-    ansible.inventory_path = "hosts"
     ansible.verbose = "v"
   end
 end
