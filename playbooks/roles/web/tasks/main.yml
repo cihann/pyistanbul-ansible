@@ -1,0 +1,5 @@
+---
+
+- include: virtualenv.yml
+- include: django.yml
+- include: nginx.yml

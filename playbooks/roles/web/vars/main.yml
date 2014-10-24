@@ -1,0 +1,6 @@
+---
+
+virtualenv_path: /home/vagrant/venv
+git_repo: https://github.com/cihann/website.git
+project_path: /home/vagrant/project
+application_name: website

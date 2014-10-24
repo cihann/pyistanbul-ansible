@@ -1,0 +1,21 @@
+---
+
+- name: install requirements
+  pip: virtualenv={{ virtualenv_path }} requirements={{ project_path }}/conf/requirements.txt
+
+- name: copy settings_local
+  command: cp {{ project_path }}/pyist/settings_local.py.dist {{ project_path }}/pyist/settings_local.py
+
+- name: Run the django syncdb command
+  django_manage:
+      command: syncdb
+      app_path: '{{ project_path }}'
+      virtualenv: '{{ virtualenv_path }}'
+  tags: django
+
+- name: Run the django migrate command
+  django_manage:
+    command: migrate
+    app_path: '{{ project_path }}'
+    virtualenv: '{{ virtualenv_path }}'
+  tags: django

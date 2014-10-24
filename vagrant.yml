@@ -1,0 +1,16 @@
+---
+- name: pyistanbul website ansible demo
+  hosts: all
+  user: vagrant
+  sudo: yes
+
+  vars_files:
+    - playbooks/vars/local.yml
+
+  vars:
+    - update_apt_cache: yes
+    - setup_git_repo: yes
+
+  roles:
+    - playbooks/roles/common
+    - playbooks/roles/web

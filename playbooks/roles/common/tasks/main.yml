@@ -1,0 +1,21 @@
+---
+
+- name: set locale
+  command: /usr/sbin/update-locale LANG={{ local.locale }} LC_ALL={{ local.locale }}
+  sudo: yes
+
+- name: Install base packages
+  apt: name={{ item }} update_cache={{ update_apt_cache }} force=yes state=installed
+  with_items:
+    - build-essential
+    - git
+    - mercurial
+    - python-dev
+    - python-pip
+    - sqlite3
+    - uwsgi
+  tags: packages
+
+- name: Install virtualenv
+  pip: name=virtualenv
+  tags: packages
